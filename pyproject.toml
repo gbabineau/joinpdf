@@ -1,0 +1,40 @@
+[tool.poetry]
+name = "joinpdf"
+version = "0.0.0"
+description = "join pdf pages"
+authors = ["gbabineau <guy.babineau@gmail.com>"]
+license = "The Unlicense"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pypdf = "^6.11.0"
+
+[tool.poetry.group.test.dependencies]
+coverage = "^7.3.1"
+pytest-cov = "^4.1.0"
+pytest-mock = "^3.6.1"
+pytest = "^8.3.5"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.coverage.run]
+source=["."]
+branch = true
+command_line = "-m pytest --junitxml=junit/test-results.xml"
+relative_files = true
+
+[tool.coverage.report]
+show_missing = true
+
+[tool.coverage.xml]
+output = "coverage.xml"
+
+[tool.poetry.group.lint.dependencies]
+ruff = "^0.12.1"
+mypy = "^1.11.2"
+
+[tool.ruff]
+line-length = 80
+
